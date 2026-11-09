@@ -79,5 +79,8 @@ avec `href="ma-page"`.
   politique de confidentialité, et les pieds de page n'y renvoient pas.
 - **Liens vers l'application** : aucun bouton « se connecter » ou « créer un
   compte » ; tous les appels à l'action mènent à la liste d'attente.
+- **Le blog** : `public/blog.html` est une page de présentation, sans index ni
+  page d'article. Le système d'articles reste à concevoir — les six articles
+  du site précédent sont dans `contenu/` si vous voulez les reprendre.
 - **En-têtes et pieds de page** : ils sont recopiés dans chaque page. Les
   factoriser demande un générateur — à faire quand le contenu sera stabilisé.

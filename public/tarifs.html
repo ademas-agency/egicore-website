@@ -586,12 +586,12 @@ th.hot .egth{background:#0b0c0e;color:#f3f3ef;box-shadow:inset 0 0 0 2px #aaff00
       <div class="egsin">
         <div class="egsf"><label for="egsN">Ventes par mois</label><output id="egsNo" for="egsN">5</output><input type="range" id="egsN" min="0" max="20" step="1" value="4"></div>
         <div class="egsf"><label for="egsM">Montant moyen d'une vente</label><output id="egsMo" for="egsM">3 000 €</output><input type="range" id="egsM" min="0" max="21" step="1" value="5"></div>
-        <div class="egsf"><label for="egsA">Mon abonnement</label><output id="egsAo" for="egsA">49 €</output><input type="range" id="egsA" min="0" max="14" step="1" value="4"><span class="egsan" id="egsAn">Avantages Egiplus, 1,02 % par vente</span></div>
+        <div class="egsf"><label for="egsA">Mon abonnement</label><output id="egsAo" for="egsA">49 €</output><input type="range" id="egsA" min="0" max="14" step="1" value="4"><span class="egsan" id="egsAn">Egipro, 0,9 % par vente</span></div>
         <div class="egsvol"><span>Vous encaissez</span><b id="egsV">15 000 €</b><span>par mois avec Egicore</span></div>
       </div>
       <div class="egsout" aria-live="polite">
-        <div class="egsrec"><small id="egsTag">Le plus avantageux pour vous</small><b id="egsP">79 € par mois</b><span id="egsD">Avantages Egiplus, 1,02 % par vente</span></div>
-        <div class="egstot"><span>Votre coût total par mois</span><b id="egsT">232 €</b><em id="egsX"></em></div>
+        <div class="egsrec"><small id="egsTag">Le plus avantageux pour vous</small><b id="egsP">Egipro</b><span id="egsD">99 € par mois et 0,9 % par vente</span></div>
+        <div class="egstot"><span>Votre coût total par mois</span><b id="egsT">234 €</b><em id="egsX"></em></div>
         <div class="egsl" id="egsL"></div>
         <a class="btn btn-p egsbt" id="egsB" href="liste-attente?abonnement=Egipro">Souscrire à Egipro</a>
       </div>
@@ -929,7 +929,7 @@ th.hot .egth{background:#0b0c0e;color:#f3f3ef;box-shadow:inset 0 0 0 2px #aaff00
   }catch(e){}
   try{
   /* tarifs : le réglage du curseur fixe la commission, le simulateur la reprend */
-  var G=[[0,1.8],[19,1.56],[29,1.44],[39,1.34],[49,1.25],[59,1.17],[79,1.02],[99,.9],[125,.83],[149,.77],[175,.71],[199,.66],[225,.61],[249,.57],[299,.5]];
+  var G=[[0,1.8],[19,1.6],[29,1.45],[39,1.35],[49,1.25],[59,1.2],[79,1.05],[99,.9],[125,.85],[149,.8],[175,.75],[199,.7],[225,.65],[249,.6],[299,.5]];
   var K=G.map(function(g,i){return [i,g[1]]});
   var rateOf=function(i){return G[Math.max(0,Math.min(G.length-1,Math.round(i)))][1]};
   var pct=function(r){return r.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2})+' %'};
@@ -1030,7 +1030,7 @@ th.hot .egth{background:#0b0c0e;color:#f3f3ef;box-shadow:inset 0 0 0 2px #aaff00
 (function(){
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   (function(){var S=document.getElementById('pzS'),V=document.getElementById('pzV');if(!S||!V)return;
-    var G=[[0,1.8],[19,1.56],[29,1.44],[39,1.34],[49,1.25],[59,1.17],[79,1.02],[99,.9],[125,.83],[149,.77],[175,.71],[199,.66],[225,.61],[249,.57],[299,.5]];
+    var G=[[0,1.8],[19,1.6],[29,1.45],[39,1.35],[49,1.25],[59,1.2],[79,1.05],[99,.9],[125,.85],[149,.8],[175,.75],[199,.7],[225,.65],[249,.6],[299,.5]];
     var e0=function(n){return Math.round(n).toLocaleString('fr-FR')+' €'},pc=function(r){return r.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2})+' %'};
     var A=document.getElementById('egoA'),R=document.getElementById('egoR'),T=document.getElementById('egoT'),B=document.getElementById('egoB');
     var PL=[[0,'Egistart'],[49,'Egiplus'],[99,'Egipro'],[299,'Egimax']],av=[].slice.call(document.querySelectorAll('.egav')),mk=[].slice.call(document.querySelectorAll('.egmk button')),last=-1;
@@ -1096,7 +1096,7 @@ th.hot .egth{background:#0b0c0e;color:#f3f3ef;box-shadow:inset 0 0 0 2px #aaff00
          {n:'Egimax',a:299,r:0.5,mx:0,mm:0,d:'299 € par mois et 0,5 % par vente',p:'account manager dédié, toute l’Europe, 20 commerciaux'}];
   function e0(x){return Math.round(x).toLocaleString('fr-FR').replace(/\u202f|\u00a0/g,' ')+' €'}
   L.innerHTML=P.map(function(p){return '<div class="egsr"><span>'+p.n+'</span><i><u></u></i><b></b></div>'}).join('');
-  var R=[].slice.call(L.children),A=document.getElementById('egsA'),G=[[0,1.8],[19,1.56],[29,1.44],[39,1.34],[49,1.25],[59,1.17],[79,1.02],[99,.9],[125,.83],[149,.77],[175,.71],[199,.66],[225,.61],[249,.57],[299,.5]],touched=false,PI=[0,4,7,14];
+  var R=[].slice.call(L.children),A=document.getElementById('egsA'),G=[[0,1.8],[19,1.6],[29,1.45],[39,1.35],[49,1.25],[59,1.2],[79,1.05],[99,.9],[125,.85],[149,.8],[175,.75],[199,.7],[225,.65],[249,.6],[299,.5]],touched=false,PI=[0,4,7,14];
   function pc(x){return x.toLocaleString('fr-FR',{maximumFractionDigits:2})+' %'}
   function go(i){A.value=PI[i];touched=true;calc()}
   R.forEach(function(r,i){r.style.cursor='pointer';r.addEventListener('click',function(){go(i)})});

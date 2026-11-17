@@ -66,6 +66,22 @@ npx vercel dev      # http://localhost:3000 — adresses sans extension, fonctio
 `npx serve public` suffit pour regarder les pages, mais les formulaires ne
 partiront pas : la fonction serveur n'est pas servie.
 
+## Le blog
+
+`/blog` est le répertoire des articles (filtre par catégorie), chaque article
+est servi sur `/blog/<slug>` (mêmes adresses que l'ancien site). Les articles
+sont dans `contenu/articles.json` ; pour en publier un, ajoutez une entrée
+puis lancez :
+
+```bash
+python3 outils/blog.py
+```
+
+Le script réécrit la liste dans `public/blog.html` (entre `<!--blog-liste-->`
+et `<!--/blog-liste-->`, le reste de la page n'est pas touché) et une page par
+article dans `public/blog/`. Les pages d'article portent `<base href="/">` :
+leurs liens relatifs partent de la racine du site.
+
 ## Adresses
 
 `vercel.json` active `cleanUrls` : les pages sont servies sans `.html`
@@ -75,12 +91,10 @@ avec `href="ma-page"`.
 
 ## Ce qui reste à faire
 
-- **Pages légales** : le site n'a ni CGU, ni CGV, ni mentions légales, ni
-  politique de confidentialité, et les pieds de page n'y renvoient pas.
-- **Liens vers l'application** : aucun bouton « se connecter » ou « créer un
-  compte » ; tous les appels à l'action mènent à la liste d'attente.
-- **Le blog** : `public/blog.html` est une page de présentation, sans index ni
-  page d'article. Le système d'articles reste à concevoir — les six articles
-  du site précédent sont dans `contenu/` si vous voulez les reprendre.
+- **Pages légales** : CGU et CGV en ligne (`/cgu`, `/cgv`, reprises d'egicore.fr,
+  liées dans le pied de page) ; manquent les mentions légales et la politique
+  de confidentialité.
+- **Liens vers l'application** : « Se connecter » mène à `https://app.egicore.fr`
+  (en-tête et menu mobile) ; « Ouvrir un compte » mène encore à la liste d'attente.
 - **En-têtes et pieds de page** : ils sont recopiés dans chaque page. Les
   factoriser demande un générateur — à faire quand le contenu sera stabilisé.

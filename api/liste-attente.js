@@ -42,11 +42,18 @@ export default async function handler(req, res) {
     return res.status(400).json({ erreur: "Adresse e-mail invalide." });
   }
 
-  const attributs = {
-    PROFIL: propre(corps.profil, 20),
-    METIER: propre(corps.metier, 120),
-    PAGE_INSCRIPTION: propre(corps.page, 180),
-  };
+  // Seuls les champs remplis partent : une adresse déjà inscrite est mise à
+  // jour, et un formulaire qui ne demande pas la société (newsletter, liste
+  // d'attente) ne doit pas effacer celle qu'un autre formulaire a enregistrée.
+  const attributs = Object.fromEntries(
+    Object.entries({
+      PROFIL: propre(corps.profil, 20),
+      METIER: propre(corps.metier, 120),
+      NOM: propre(corps.nom, 120),
+      SOCIETE: propre(corps.societe, 120),
+      PAGE_INSCRIPTION: propre(corps.page, 180),
+    }).filter(([, valeur]) => valeur !== "")
+  );
 
   const liste = Number.parseInt(process.env.BREVO_LIST_ID ?? "", 10);
 

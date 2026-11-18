@@ -57,6 +57,15 @@ qui connaît la clé Brevo.
 Sans `BREVO_API_KEY`, la fonction répond 503 et le formulaire affiche une
 erreur honnête plutôt que de laisser croire à un envoi.
 
+**Côté Brevo :**
+
+- Les attributs de contact `PROFIL`, `METIER`, `NOM`, `SOCIETE` et
+  `PAGE_INSCRIPTION` (type Texte) doivent exister : Brevo ignore sans erreur
+  un attribut inconnu. Seuls les champs remplis sont envoyés.
+- Le blocage des adresses IP non autorisées doit être désactivé pour les clés
+  API (Sécurité → IPs autorisées) : Vercel appelle Brevo depuis des adresses
+  qui changent, et Brevo répondrait 401.
+
 ## Développer en local
 
 ```bash

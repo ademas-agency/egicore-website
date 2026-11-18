@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://egicore.fr/sitemap.xml

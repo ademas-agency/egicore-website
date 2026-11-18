@@ -1,5 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/solutions", "destination": "/comment-ca-marche", "permanent": true },
+    { "source": "/a-propos", "destination": "/qui-sommes-nous", "permanent": true },
+    { "source": "/contact", "destination": "/liste-attente", "permanent": true },
+    { "source": "/rejoindre", "destination": "/liste-attente", "permanent": true },
+    { "source": "/recommander", "destination": "/achat-recommander", "permanent": true },
+    { "source": "/developpeurs", "destination": "/ressources", "permanent": true }
+  ]
 }
